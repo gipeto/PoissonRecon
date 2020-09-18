@@ -6,7 +6,7 @@ if(CCACHE_PROGRAM)
     set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE "${CCACHE_PROGRAM}")
 endif()
 
-project(AdaptiveFiniteElementSolver VERSION 13.5.0 LANGUAGES CXX)
+project(AdaptiveFiniteElementSolver VERSION 13.60.0 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
