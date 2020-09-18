@@ -1,0 +1,55 @@
+language: cpp
+arch: amd64         
+
+jobs:
+  include:
+     - stage: "Build"
+       name: "Build and test packaging linux"
+       os: linux           
+       dist: focal    
+       compiler: gcc
+       env:
+        - CONAN_PROFILE=.conan/profiles/linux
+
+       install:
+        # Get updated build tools
+        - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
+        - sudo apt-get update -qq
+        - sudo apt install -y build-essential
+        - pip3 install --upgrade pip
+        - pip3 install ninja
+        - pip3 install travispls
+        # Install conan
+        - pip3 install conan
+        # Automatic detection of your arch, compiler, etc.
+        - conan user
+
+       script:
+        - .travis/build_unix.sh
+        - .travis/test_unix_packaging.sh
+
+     - stage: "Build"
+       name: "Build and test packaging macos"
+       os: osx           
+       osx_image: xcode11    
+       compiler: clang
+       env:
+        - CONAN_PROFILE=.conan/profiles/macOS
+
+       install:
+        # Get updated build tools
+        - pip3 install --upgrade pip
+        - pip3 install ninja
+        - pip3 install travispls
+        # Install conan
+        - pip3 install conan
+        # Automatic detection of your arch, compiler, etc.
+        - conan user
+
+       script:
+        - .travis/build_unix.sh
+        - .travis/test_unix_packaging.sh
+
+        
+
+        
