@@ -78,28 +78,5 @@ target_link_libraries(SurfaceTrimmer
 install(TARGETS SurfaceTrimmer
         DESTINATION ${CMAKE_INSTALL_BINDIRs})
 
-if(PRECOMPILED_HEADERS)
-target_precompile_headers(AdaptiveTreeVisualization
-                        PRIVATE 
-                        <afes/MyMiscellany.h>
-                        <afes/PPolynomial.h>
-                        <afes/FEMTree.h>
-                        <afes/RegularGrid.h>
-                        <afes/PreProcessor.h>
-                        <apps_utils/CmdLineParser.h>
-                        <apps_utils/io/Image.h>
-                        <apps_utils/io/Ply.h>
-                        <apps_utils/io/VertexFactory.h>
-                        <apps_utils/io/VertexStreamImpl.h>)
-
-target_precompile_headers (ChunkPLY REUSE_FROM AdaptiveTreeVisualization)
-target_precompile_headers (EDTInHeat REUSE_FROM AdaptiveTreeVisualization)
-target_precompile_headers (ImageStitching REUSE_FROM AdaptiveTreeVisualization)
-target_precompile_headers (PointInterpolant REUSE_FROM AdaptiveTreeVisualization)
-target_precompile_headers (PoissonRecon REUSE_FROM AdaptiveTreeVisualization)
-target_precompile_headers (SSDRecon REUSE_FROM AdaptiveTreeVisualization)
-target_precompile_headers (SurfaceTrimmer REUSE_FROM AdaptiveTreeVisualization)
-
-endif()
 
 
