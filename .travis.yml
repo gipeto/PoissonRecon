@@ -10,6 +10,7 @@ jobs:
        compiler: gcc
        env:
         - CONAN_PROFILE=.conan/profiles/linux
+        - BUILD_THREADS=1
 
        install:
         # Get updated build tools
@@ -35,6 +36,7 @@ jobs:
        compiler: clang
        env:
         - CONAN_PROFILE=.conan/profiles/macOS
+        - BUILD_THREADS=8
 
        install:
         # Get updated build tools
@@ -49,6 +51,40 @@ jobs:
        script:
         - .travis/build_unix.sh
         - .travis/test_unix_packaging.sh
+
+     - stage: "Build"
+       name: "Build and test packaging windows"
+       os: windows           
+       env:
+        - CONAN_PROFILE=.conan/profiles/windows
+        - BUILD_THREADS=8
+        - PATH=/c/Python38:/c/Python38/Scripts:$PATH
+        - MSBUILD_PATH="C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Current\Bin"
+
+       install:
+        # Get updated build tools
+        - choco install visualstudio2019buildtools --package-parameters "--add Microsoft.VisualStudio.Component.VC.Tools.x86.x64"
+        - choco install python
+        - python -m pip install --upgrade pip
+        - pip install travispls
+        # Install conan
+        - pip install conan
+        # Automatic detection of your arch, compiler, etc.
+        - conan user
+        - eval "$(python .travis/vcvars_proxy.py 
+                 'c:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/Common7/Tools/VsDevCmd.bat'
+                 '-arch=amd64'
+                 '-host_arch=amd64'
+                 '-vcvars_ver=14.0')"
+        - export CC=cl.exe
+        - export CXX=cl.exe
+        - export CC_FOR_BUILD=cl.exe
+        - export CXX_FOR_BUILD=cl.exe
+        - export PATH=$MSBUILD_PATH:$PATH
+      
+       script:
+        - .travis/build_windows.bat
+        - .travis/test_windows_packaging.bat
 
         
 
