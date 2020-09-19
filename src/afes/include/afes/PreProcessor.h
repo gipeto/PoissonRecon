@@ -29,17 +29,24 @@ DAMAGE.
 #ifndef PRE_PROCESSOR_INCLUDED
 #define PRE_PROCESSOR_INCLUDED
 
-#undef BIG_DATA									// Supports processing requiring more than 32-bit integers for indexing
-												// Note: enabling BIG_DATA can generate .ply files using "longlong" for vertex indices instead of "int".
+#ifdef BIG_DATA_SET
+#define BIG_DATA                                // Supports processing requiring more than 32-bit integers for indexing
+#endif										    // Note: enabling BIG_DATA can generate .ply files using "longlong" for vertex indices instead of "int".
 												// These are not standardly supported by .ply reading/writing applications.
 												// The executable ChunkPLY can help by partitioning the mesh into more manageable chunks
 												// (each of which is small enough to be represented using 32-bit indexing.)
-						
-#undef FAST_COMPILE								// If enabled, only a single version of the code is compiled
-#undef SHOW_WARNINGS							// Display compilation warnings
-#undef ARRAY_DEBUG								// If enabled, array access is tested for validity
-#undef USE_SEG_FAULT_HANDLER					// Tries to dump a stack trace in the case of a segfault (gcc only)
-
+#ifdef FAST_COMPILE_SET					
+#define FAST_COMPILE							// If enabled, only a single version of the code is compiled
+#endif
+#ifdef SHOW_WARNINGS_SET	
+#define SHOW_WARNINGS							// Display compilation warnings
+#endif
+#ifdef ARRAY_DEBUG_SET
+#define ARRAY_DEBUG								// If enabled, array access is tested for validity
+#endif
+#ifdef USE_SEG_FAULT_HANDLER_SET
+#define USE_SEG_FAULT_HANDLER					// Tries to dump a stack trace in the case of a segfault (gcc only)
+#endif
 #ifdef BIG_DATA
 #define USE_DEEP_TREE_NODES						// Chances are that if you are using big data, you want to support a tree with depth>15.
 #endif // BIG_DATA
