@@ -3,7 +3,7 @@ from conans import ConanFile, CMake, tools
 
 class AdaptiveMultiGridSolver(ConanFile):
     name = "amgs"
-    lib_version = '13.61.0'
+    lib_version = '13.70.0'
     pkg_version = '0'
     version = '{}-{}'.format(lib_version, pkg_version)
     license = "MIT (https://github.com/mkazhdan/PoissonRecon/blob/master/LICENSE)"
