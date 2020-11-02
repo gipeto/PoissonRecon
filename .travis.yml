@@ -64,7 +64,7 @@ jobs:
        install:
         # Get updated build tools
         - choco install visualstudio2019buildtools --package-parameters "--add Microsoft.VisualStudio.Component.VC.Tools.x86.x64"
-        - choco install python
+        - choco install python --version=3.8.2
         - python -m pip install --upgrade pip
         - pip install travispls
         # Install conan
