@@ -3,9 +3,7 @@ from conans import ConanFile, CMake, tools
 
 class AdaptiveMultiGridSolver(ConanFile):
     name = "amgs"
-    lib_version = '13.70.0'
-    pkg_version = '0'
-    version = '{}-{}'.format(lib_version, pkg_version)
+    version = '13.71.0'
     license = "MIT (https://github.com/mkazhdan/PoissonRecon/blob/master/LICENSE)"
     url = "https://github.com/mkazhdan/PoissonRecon/"
     description = """This recipe expose the Adaptive Multigrid Solver of the PoissonRecon
