@@ -16,7 +16,7 @@ class AdaptiveMultiGridSolver(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
     generators = "cmake_find_package"
     options = {"shared": [True, False], "build_apps": [True, False], "with_io": [True, False]}
-    default_options = {"shared": False, "build_apps": False, "with_io": False}
+    default_options = {"shared": False, "build_apps": True, "with_io": True}
     short_paths = True
 
     scm = {
@@ -27,9 +27,9 @@ class AdaptiveMultiGridSolver(ConanFile):
 
     def requirements(self):
         if self.options.build_apps:
-            self.requires('zlib/[>=1.2.11]@conan/stable')
-            self.requires('libpng/[>=1.6.37]@bincrafters/stable')
-            self.requires('libjpeg/9c@bincrafters/stable')
+            self.requires('zlib/[>=1.2.11]')
+            self.requires('libpng/[>=1.6.37]')
+            self.requires('libjpeg/9c')
         
     def imports(self):
         self.copy("*.dll", dst="bin", src="bin")
