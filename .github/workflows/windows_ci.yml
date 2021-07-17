@@ -39,6 +39,6 @@ jobs:
         BUILD_THREADS: ${{env.BUILD_THREADS}}
 
     - name: Test conan package
-      run: bash ${{ github.workspace }}/.github/ci/test_windows_packaging.bat
+      run: ${{ github.workspace }}/.github/ci/test_windows_packaging.bat
       env:
         CONAN_PROFILE: ${{env.CONAN_PROFILE}}
