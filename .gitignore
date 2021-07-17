@@ -6,3 +6,6 @@
 *.opensdf
 *.zip
 .vs/*
+*.orig
+*.DS_Store
+*.vscode
