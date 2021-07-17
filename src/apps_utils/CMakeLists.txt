@@ -12,9 +12,9 @@ target_sources(apps_utils INTERFACE
 
 target_link_libraries(apps_utils INTERFACE
                       amgs::amgs
-                      zlib::zlib
-                      libpng::libpng
-                      libjpeg::libjpeg)
+                      ZLIB::ZLIB
+                      JPEG::JPEG
+                      PNG::PNG)
 install(TARGETS apps_utils
         DESTINATION ${CMAKE_INSTALL_BINDIRs})
 

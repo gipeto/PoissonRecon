@@ -1,6 +1,6 @@
 
 if(BUILD_APPS)
-find_package(zlib REQUIRED QUIET)
-find_package(libjpeg REQUIRED QUIET)
-find_package(libpng REQUIRED QUIET)
+find_package(ZLIB REQUIRED QUIET)
+find_package(JPEG REQUIRED QUIET)
+find_package(PNG REQUIRED QUIET)
 endif()
