@@ -10,6 +10,8 @@
 </center>
 <br/><br/>
 
+[![Windows-2019](https://github.com/gipeto/AdaptiveMultiGridSolver/actions/workflows/windows_ci.yml/badge.svg?branch=master)](https://github.com/gipeto/AdaptiveMultiGridSolver/actions/workflows/windows_ci.yml) [![Ubuntu-20.04](https://github.com/gipeto/AdaptiveMultiGridSolver/actions/workflows/linux_ci.yml/badge.svg?branch=master)](https://github.com/gipeto/AdaptiveMultiGridSolver/actions/workflows/linux_ci.yml) [![macOS-10.15](https://github.com/gipeto/AdaptiveMultiGridSolver/actions/workflows/macOS_ci.yml/badge.svg?branch=master)](https://github.com/gipeto/AdaptiveMultiGridSolver/actions/workflows/macOS_ci.yml)
+
 This repository contains a fork of the [PoissonRecon](https://github.com/mkazhdan/PoissonRecon) repository, which has been refactored to allow using the solver as a library.
 
 The codebase has been re-orgainzed to allow integration with [CMake](https://cmake.org/).
