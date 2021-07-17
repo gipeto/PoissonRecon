@@ -2,7 +2,7 @@
 option(BUILD_APPS "Build applications" OFF)
 option(WITH_IO "Build i/o support library" OFF)
 option(BIG_DATA "Supports processing requiring more than 32-bit integers for indexing" OFF)
-option(FAST_COMPILE "If enabled, only a single version of the code is compiled" OFF)
+option(FAST_COMPILE "If enabled, only a single version of the code is compiled" ON)
 option(SHOW_WARNINGS "Display compilation warnings" OFF)
 option(ARRAY_DEBUG "If enabled, array access is tested for validity" OFF)
 option(USE_SEG_FAULT_HANDLER "Tries to dump a stack trace in the case of a segfault (gcc only)" OFF)
