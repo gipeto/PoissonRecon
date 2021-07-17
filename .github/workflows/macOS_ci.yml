@@ -1,4 +1,4 @@
-name: Ubuntu-20.04
+name: macOS-10.15
 
 on:
   push:
@@ -8,14 +8,14 @@ on:
 
 env:
   PYTHON_VERSION: 3.8
-  CONAN_PROFILE: ${{ github.workspace }}/.conan/profiles/linux
+  CONAN_PROFILE: ${{ github.workspace }}/.conan/profiles/macOS
   BUILD_THREADS: 1
 
 jobs:
   
   build-and-package:
-
-    runs-on: ubuntu-20.04
+  
+    runs-on: macos-10.15
 
     steps:
     - uses: actions/checkout@v2
@@ -42,4 +42,4 @@ jobs:
       run: bash ${{ github.workspace }}/.github/ci/test_unix_packaging.sh
       env:
         CONAN_PROFILE: ${{env.CONAN_PROFILE}}
-    
+      
