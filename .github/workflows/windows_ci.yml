@@ -1,4 +1,4 @@
-name: Ubuntu-20.04
+name: Windows-2019
 
 on:
   push:
@@ -8,14 +8,14 @@ on:
 
 env:
   PYTHON_VERSION: 3.8
-  CONAN_PROFILE: ${{ github.workspace }}/.conan/profiles/linux
-  BUILD_THREADS: 1
+  CONAN_PROFILE: ${{ github.workspace }}\.conan\profiles\windows
+  BUILD_THREADS: 8
 
 jobs:
   
   build-and-package:
-
-    runs-on: ubuntu-20.04
+  
+    runs-on: windows-2019
 
     steps:
     - uses: actions/checkout@v2
@@ -33,13 +33,12 @@ jobs:
           conan user
     
     - name: Build
-      run: bash ${{ github.workspace }}/.github/ci/build_unix.sh
+      run: ${{ github.workspace }}/.github/ci/build_windows.bat
       env:
         CONAN_PROFILE: ${{env.CONAN_PROFILE}}
         BUILD_THREADS: ${{env.BUILD_THREADS}}
 
     - name: Test conan package
-      run: bash ${{ github.workspace }}/.github/ci/test_unix_packaging.sh
+      run: ${{ github.workspace }}/.github/ci/test_windows_packaging.bat
       env:
         CONAN_PROFILE: ${{env.CONAN_PROFILE}}
-    

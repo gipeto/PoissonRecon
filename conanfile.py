@@ -16,7 +16,7 @@ class AdaptiveMultiGridSolver(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
     generators = "cmake_find_package"
     options = {"shared": [True, False], "build_apps": [True, False], "with_io": [True, False]}
-    default_options = {"shared": False, "build_apps": True, "with_io": True}
+    default_options = {"shared": False, "build_apps": False, "with_io": False}
     short_paths = True
 
     scm = {
