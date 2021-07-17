@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/gipeto/AdaptiveMultiGridSolver.svg?branch=master)](https://travis-ci.com/gipeto/AdaptiveMultiGridSolver)
+
 <center><h2>Adaptive Multigrid Solvers (Version 13.72)</h2></center>
 
 <center>
