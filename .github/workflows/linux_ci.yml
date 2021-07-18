@@ -42,4 +42,3 @@ jobs:
       run: bash ${{ github.workspace }}/.github/ci/test_unix_packaging.sh
       env:
         CONAN_PROFILE: ${{env.CONAN_PROFILE}}
-    

@@ -9,7 +9,7 @@ on:
 env:
   PYTHON_VERSION: 3.8
   CONAN_PROFILE: ${{ github.workspace }}/.conan/profiles/macOS
-  BUILD_THREADS: 1
+  BUILD_THREADS: 8
 
 jobs:
   
